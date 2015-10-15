@@ -1,0 +1,25 @@
+{
+	"identifier": "cq5KOVR9MTmrTOLM5EWjuTWgFvYD7Vn0",
+	"clients": {
+		"sally": {
+			"ip": "11.11.11.11",
+			"port": "11"
+		},
+		"james": {
+			"ip": "22.22.22.22",
+			"port": "22"
+		},
+		"robert": {
+			"ip": "33.33.33.33",
+			"port": "33"
+		},
+		"sarah": {
+			"ip": "44.44.44.44",
+			"port": "44"
+		},
+		"rupert": {
+			"ip": "55.55.55.55",
+			"port": "55"
+		}
+	}
+}
