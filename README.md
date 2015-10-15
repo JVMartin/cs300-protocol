@@ -10,7 +10,8 @@ Table of Contents
 
 Creating a Network
 ------------------
-In order to create a network, compile the following two items:
+In order to create a network, compile the following two items.  Both items
+are to be distributed to all clients in the client list.
 
 1. **A network identifier/key.**
 
@@ -18,45 +19,47 @@ In order to create a network, compile the following two items:
 	```BASH
 	apg -a 1 -m 32 -M NCL -n 1
 	```
-	(See [man apg](http://linux.die.net/man/1/apg).)
 
 	If apg is not installed on your Raspberry Pi, install it using:
 	```
 	sudo apt-get install apg
 	```
+	(See [man apg](http://linux.die.net/man/1/apg).)
 
-	The chances of a string collision are astronomical.
-
-	Ensure that only yourself and your clients have access to this key.
+	The chances of a string collision are astronomical.  Ensure that only
+	yourself and the other clients have access to this key.
 
 2. **A static list of clients.**
 
-	This is a list of clients that can access the network.  Every client will
-	have the network identifier that was generated above, and will also
-	have this list of clients.
+	This is a list of clients that can access the network.
 
 	```
-	+------------+-------------+------+
-	|  username  |     ip      | port |
-	+------------+-------------+------+
-	| sally      | 11.11.11.11 | 11   |
-	| james      | 22.22.22.22 | 22   |
-	| robert     | 33.33.33.33 | 33   |
-	| sarah      | 44.44.44.44 | 44   |
-	| rupert     | 55.55.55.55 | 55   |
-	| ...        | ...         | ...  |
-	+------------+-------------+------+
+	+------------+-------------+------+--------------+
+	|  username  |     ip      | port | last updated |
+	+------------+-------------+------+--------------+
+	| sally      | 11.11.11.11 | 11   | <timestamp>  |
+	| james      | 22.22.22.22 | 22   | <timestamp>  |
+	| robert     | 33.33.33.33 | 33   | <timestamp>  |
+	| sarah      | 44.44.44.44 | 44   | <timestamp>  |
+	| rupert     | 55.55.55.55 | 55   | <timestamp>  |
+	| ...        | ...         | ...  | <timestamp>  |
+	+------------+-------------+------+--------------+
 	```
+
+	* username
+		* Only lowercase letters (no spaces, hyphens, etc.)
+		* 3 - 12 characters long
+		* Can never change
+	* ip
+	* port
+	* last updated
+		* Indicates when IP address / port was last changed
+		* Use elapsed time in seconds [since the Epoch](https://en.wikipedia.org/wiki/Unix_time): ```date +%s```
+		* See [section on changing IP addresses](#changing-an-ip-address)
 
 	This list is as static as it can possibly be.  Usernames cannot be changed.
-	Users cannot be added or removed from a network.
-
-	(Save such features for your own version 2.)
-
-	Usernames must be composed only of lowercase letters (no spaces, hyphens, etc).
-
-	[Changing IP addresses and ports](#changing-an-ip-address) are inevitable and
-	will be dealt with below.
+	Users cannot be added or removed from a network.  (Save such features for
+	future versions.)
 
 Connecting to a Network
 -----------------------
@@ -81,8 +84,10 @@ Each time you start your client program, verify that your IP address and port
 have not changed from the IP address and port representing you
 in your client table.
 
-If they have changed, broadcast the change to all other clients on the
-network.
+If either has changed, save the current Epoch time (the time you discover
+the change) to a variable.
+
+Next, broadcast the change to all other clients on the network.
 
 For each client on the client list:
 
@@ -92,8 +97,15 @@ For each client on the client list:
 
 	* The first 32 characters should be the network identifier.
 	* The 33rd character should be an "i" (for "ip update").
-	* The remaining characters should be your username, IP address, and port in the following format:
-		```sally:11.11.11.11:2222```
+	* The remaining characters should be:
+		* Your username
+		* A colon
+		* Your ip address
+		* A colon
+		* Your port
+		* A colon
+		* The time saved above
+		* For example: ```sally:11.11.11.11:2222:1444892237```
 
 3.  Disconnect.
 
