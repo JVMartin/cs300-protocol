@@ -97,15 +97,14 @@ For each client on the client list:
 
 	* The first 32 characters should be the network identifier.
 	* The 33rd character should be an "i" (for "ip update").
-	* The remaining characters should be:
+	* The remaining characters should be (e.g. `sally|11.11.11.11|2222|1444892237`):
 		* Your username
-		* A colon
+		* A pipe character
 		* Your ip address
-		* A colon
+		* A pipe character
 		* Your port
-		* A colon
+		* A pipe character
 		* The time saved above
-		* For example: ```sally:11.11.11.11:2222:1444892237```
 
 3.  Disconnect.
 
