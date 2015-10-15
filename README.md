@@ -50,7 +50,7 @@ are to be distributed to all clients in the client list.
 		* Only lowercase letters (no spaces, hyphens, etc.)
 		* 3 - 12 characters long
 		* Can never change
-		* Each is unique
+		* Each must be unique
 	* ip
 	* port
 
