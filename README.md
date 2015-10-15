@@ -10,7 +10,8 @@ Table of Contents
 
 Creating a Network
 ------------------
-In order to create a network, compile the following two items:
+In order to create a network, compile the following two items.  Both items
+are to be distributed to all clients in the client list.
 
 1. **A network identifier/key.**
 
@@ -18,22 +19,19 @@ In order to create a network, compile the following two items:
 	```BASH
 	apg -a 1 -m 32 -M NCL -n 1
 	```
-	(See [man apg](http://linux.die.net/man/1/apg).)
 
 	If apg is not installed on your Raspberry Pi, install it using:
 	```
 	sudo apt-get install apg
 	```
+	(See [man apg](http://linux.die.net/man/1/apg).)
 
-	The chances of a string collision are astronomical.
-
-	Ensure that only yourself and your clients have access to this key.
+	The chances of a string collision are astronomical.  Ensure that only
+	yourself and your clients have access to this key.
 
 2. **A static list of clients.**
 
-	This is a list of clients that can access the network.  Every client will
-	have the network identifier that was generated above, and will also
-	have this list of clients.
+	This is a list of clients that can access the network.
 
 	```
 	+------------+-------------+------+
@@ -48,12 +46,16 @@ In order to create a network, compile the following two items:
 	+------------+-------------+------+
 	```
 
+	* username
+		* Only lowercase letters (no spaces, hyphens, etc.)
+		* 3 - 12 characters long
+		* Can never change
+	* ip
+	* port
+
 	This list is as static as it can possibly be.  Usernames cannot be changed.
-	Users cannot be added or removed from a network.
-
-	(Save such features for your own version 2.)
-
-	Usernames must be composed only of lowercase letters (no spaces, hyphens, etc).
+	Users cannot be added or removed from a network.  (Save such features for
+	future versions.)
 
 	[Changing IP addresses and ports](#changing-an-ip-address) are inevitable and
 	will be dealt with below.
@@ -92,8 +94,12 @@ For each client on the client list:
 
 	* The first 32 characters should be the network identifier.
 	* The 33rd character should be an "i" (for "ip update").
-	* The remaining characters should be your username, IP address, and port in the following format:
-		```sally:11.11.11.11:2222```
+	* The remaining characters should be your username, IP address, and port in the following format (e.g. `sally:11.11.11.11:2222`):
+		* Your username
+		* A colon
+		* Your IP address
+		* A colon
+		* Your port
 
 3.  Disconnect.
 
