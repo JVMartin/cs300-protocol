@@ -67,7 +67,7 @@ clients.
 
 You are now ready to send a message to a user.
 
-1. Establish a TLS connection to the desired user's IP address and port.
+1. Establish a TLS 1.2 connection to the desired user's IP address and port.
 
 2. Send a string of at most 533 characters.
 
