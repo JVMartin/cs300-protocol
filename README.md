@@ -27,7 +27,7 @@ are to be distributed to all clients in the client list.
 	(See [man apg](http://linux.die.net/man/1/apg).)
 
 	The chances of a string collision are astronomical.  Ensure that only
-	yourself and your clients have access to this key.
+	clients on the list have access to this key.
 
 2. **A static list of clients.**
 
@@ -58,7 +58,7 @@ are to be distributed to all clients in the client list.
 	future versions.)
 
 	[Changing IP addresses and ports](#changing-an-ip-address) are inevitable and
-	will be dealt with below.
+	will be dealt with below.  (Is this a required feature?)
 
 Connecting to a Network
 -----------------------
@@ -79,6 +79,8 @@ You are now ready to send a message to a user.
 
 Changing an IP Address
 ----------------------
+(Is this a required feature?)
+
 Each time you start your client program, verify that your IP address and port
 have not changed from the IP address and port representing you
 in your client table.
