@@ -78,7 +78,8 @@ You are now ready to send a message to a user.
 Changing an IP Address
 ----------------------
 Each time you start your client program, verify that your IP address and port
-have not changed from the IP address and port in your client table.
+have not changed from the IP address and port representing you
+in your client table.
 
 If they have changed, broadcast the change to all other clients on the
 network.
