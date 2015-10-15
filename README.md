@@ -2,9 +2,15 @@ CS300 Raspberry Pi Protocol
 ===========================
 A protocol for our Raspberry Pi distributed messaging network.
 
+Table of Contents
+-----------------
+ * [Creating a Network](#creating-a-network)
+ * [Connecting to a Network](#connecting-to-a-network)
+ * [Changing an IP Address](#changing-an-ip-address)
+
 Creating a Network
 ------------------
-In order to create a network, compile the following two items.
+In order to create a network, compile the following two items:
 
 1. **A network identifier/key.**
 
