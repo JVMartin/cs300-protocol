@@ -20,6 +20,11 @@ In order to create a network, compile the following two items:
 	```
 	(See [man apg](http://linux.die.net/man/1/apg).)
 
+	If apg is not installed on your Raspberry Pi, install it using:
+	```
+	sudo apt-get install apg
+	```
+
 	The chances of a string collision are astronomical.
 
 	Ensure that only yourself and your clients have access to this key.
