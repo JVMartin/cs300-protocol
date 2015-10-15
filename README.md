@@ -16,8 +16,9 @@ In order to create a network, compile the following two items:
 
 	This is a string of 32 random characters, generated using the Unix command:
 	```BASH
-	apg -a 1 -m 32 -M NCL
+	apg -a 1 -m 32 -M NCL -n 1
 	```
+	(See [man apg](http://linux.die.net/man/1/apg).)
 	The chances of a string collision are astronomical.
 
 	Ensure that only yourself and your clients have access to this key.
