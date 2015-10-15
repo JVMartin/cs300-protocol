@@ -90,7 +90,7 @@ network.
 
 For each client on the client list:
 
-1.  Establish a TLS connection to the client's IP address and port.
+1.  Establish a TLS 1.2 connection to the client's IP address and port.
 
 2.  Send a string:
 
