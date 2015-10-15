@@ -111,4 +111,4 @@ table accordingly.
 
 If you are a client *sending* this string, keep track of which clients
 have received the message.  Keep attempting TLS connections with dead
-clients every 5 minutes until all clients have been updated.
+clients every 5 seconds until all clients have been updated.
