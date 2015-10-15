@@ -61,6 +61,8 @@ are to be distributed to all clients in the client list.
 	[Changing IP addresses and ports](#changing-an-ip-address) are inevitable and
 	will be dealt with below.  (Is this a required feature?)
 
+[Here is an example network in JSON form.](https://github.com/JVMartin/cs300-protocol/blob/master/network.json)
+
 Connecting to a Network
 -----------------------
 Populate your program with the network identifier and the static list of
