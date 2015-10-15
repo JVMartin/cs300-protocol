@@ -94,7 +94,7 @@ For each client on the client list:
 
 	* The first 32 characters should be the network identifier.
 	* The 33rd character should be an "i" (for "ip update").
-	* The remaining characters should be your username, IP address, and port in the following format (e.g. `sally:11.11.11.11:2222`):
+	* The remaining characters should be (e.g. `sally:11.11.11.11:2222`):
 		* Your username
 		* A colon
 		* Your IP address
