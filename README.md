@@ -57,7 +57,7 @@ clients.
 
 You are now ready to send a message to a user.
 
-1. Establish a TCP/IP connection to the desired user's IP address and port.
+1. Establish a TCP connection to the desired user's IP address and port.
 
 2. Send a CipherSaber-encrypted string consisting of:
 
@@ -68,3 +68,8 @@ You are now ready to send a message to a user.
 	* A message of up to 500 characters
 
 3. Disconnect.
+
+Here is an example message prior to encryption:
+```
+sally|m|Hey Robert, how did you do on the exam?
+```
