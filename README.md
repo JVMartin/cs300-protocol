@@ -2,32 +2,22 @@ CS300 Raspberry Pi Protocol
 ===========================
 A protocol for our Raspberry Pi distributed messaging network.
 
+Version 0.1
+
 Table of Contents
 -----------------
  * [Creating a Network](#creating-a-network)
- * [Connecting to a Network](#connecting-to-a-network)
- * [Changing an IP Address](#changing-an-ip-address)
+ * [Sending a Message](#sending-a-message)
 
 Creating a Network
 ------------------
 In order to create a network, compile the following two items.  Both items
 are to be distributed to all clients in the client list.
 
-1. **A network identifier/key.**
+1. **An encryption key.**
 
-	This is a string of 32 random characters, generated using the Unix command:
-	```BASH
-	apg -a 1 -m 32 -M NCL -n 1
-	```
-
-	If apg is not installed on your Raspberry Pi, install it using:
-	```
-	sudo apt-get install apg
-	```
-	(See [man apg](http://linux.die.net/man/1/apg).)
-
-	The chances of a string collision are astronomical.  Ensure that only
-	clients on the list have access to this key.
+	Generate an encryption key.  All communications will be encrypted using the
+	[RC4-based CipherSaber protocol](https://en.wikipedia.org/wiki/CipherSaber).
 
 2. **A static list of clients.**
 
@@ -58,59 +48,25 @@ are to be distributed to all clients in the client list.
 	Users cannot be added or removed from a network.  (Save such features for
 	future versions.)
 
-	[Changing IP addresses and ports](#changing-an-ip-address) are inevitable and
-	will be dealt with below.  (Is this a required feature?)
+	The protocol does not cover/allow for changing IP addresses or ports.
 
 [Here is an example network in JSON form.](https://github.com/JVMartin/cs300-protocol/blob/master/network.json)
 
-Connecting to a Network
+Sending a Message
 -----------------------
-Populate your program with the network identifier and the static list of
+Populate your client program with the encryption key and the static list of
 clients.
 
 You are now ready to send a message to a user.
 
-1. Establish a TLS 1.2 connection to the desired user's IP address and port.
+1. Establish a TCP/IP connection to the desired user's IP address and port.
 
-2. Send a string of at most 533 characters.
+2. Send a CipherSaber-encrypted string consisting of:
 
-	* The first 32 characters should be the network identifier.
-	* The 33rd character should be an "m" (for "message").
-	* The remaining (up to 500) characters should be the message.
+	* Your username
+	* A pipe character
+	* The letter "m" (for "message")
+	* A pipe character
+	* A message of up to 500 characters
 
 3. Disconnect.
-
-Changing an IP Address
-----------------------
-(Is this a required feature?)
-
-Each time you start your client program, verify that your IP address and port
-have not changed from the IP address and port representing you
-in your client table.
-
-If they have changed, broadcast the change to all other clients on the
-network.
-
-For each client on the client list:
-
-1.  Establish a TLS 1.2 connection to the client's IP address and port.
-
-2.  Send a string:
-
-	* The first 32 characters should be the network identifier.
-	* The 33rd character should be an "i" (for "ip update").
-	* The remaining characters should be (e.g. `sally|11.11.11.11|2222`):
-		* Your username
-		* A pipe character
-		* Your IP address
-		* A pipe character
-		* Your port
-
-3.  Disconnect.
-
-If you are a client *receiving* this string, update your client
-table accordingly.
-
-If you are a client *sending* this string, keep track of which clients
-have received the message.  Keep attempting TLS connections with dead
-clients every 5 seconds until all clients have been updated.
