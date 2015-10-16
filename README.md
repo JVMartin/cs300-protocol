@@ -1,8 +1,6 @@
-CS300 Raspberry Pi Protocol
-===========================
+CS300 Raspberry Pi Protocol v0.1
+================================
 A protocol for our Raspberry Pi distributed messaging network.
-
-Version 0.1
 
 Table of Contents
 -----------------
