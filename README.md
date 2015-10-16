@@ -14,8 +14,8 @@ are to be distributed to all clients in the client list.
 
 1. **An encryption key.**
 
-	Generate an encryption key.  All communications will be encrypted using the
-	[RC4-based CipherSaber protocol](https://en.wikipedia.org/wiki/CipherSaber).
+	Generate a secure encryption key.  All communications will be encrypted
+	using the [RC4-based CipherSaber protocol](https://en.wikipedia.org/wiki/CipherSaber).
 
 2. **A static list of clients.**
 
