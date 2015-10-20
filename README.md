@@ -1,6 +1,6 @@
-CS300 Raspberry Pi Protocol v0.1
+TauNet Protocol v0.1
 ================================
-A protocol for our Raspberry Pi distributed messaging network.
+TauNet is a Raspberry Pi based distributed messaging network.
 
 Table of Contents
 -----------------
@@ -59,17 +59,24 @@ You are now ready to send a message to a user.
 
 1. Establish a TCP connection to the desired user's IP address and port.
 
-2. Send a CipherSaber-encrypted string consisting of:
+2. \[Edit me to do something involving specifically what CipherSaber preliminaries
+	are needed.\]
 
+3. Send a CipherSaber-encrypted string consisting of:
+
+	* Your TauNet protocol version number
+	* A pipe character
 	* Your username
+	* A pipe character
+	* The recipient's username
 	* A pipe character
 	* The letter "m" (for "message")
 	* A pipe character
 	* A message of up to 500 characters
 
-3. Disconnect.
+4. Disconnect.
 
 Here is an example message prior to encryption:
 ```
-sally|m|Hey Robert, how did you do on the exam?
+v0.1|sally|robert|m|Hey Robert, how did you do on the exam?
 ```
