@@ -36,7 +36,7 @@ are to be distributed to all clients in the client list.
 
 	* username
 		* Only lowercase letters (no spaces, hyphens, etc.)
-		* 3 - 12 characters long
+		* 1 - 20 characters long
 		* Can never change
 		* Each must be unique
 	* ip
