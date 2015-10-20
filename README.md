@@ -38,18 +38,19 @@ are to be distributed to all clients in the client list.
 		* Only lowercase letters
 		* 1 - 20 characters long
 		* Must be unique
-		* Can never change
+		* Must never change
 	* ip
 		* Must be IPv4
-		* Can never change
+		* Must never change
 	* port
-		* Can never change
+		* Must never change
 
 	This list is as static as it can possibly be.
 	Users cannot be added or removed from a network.  (Save such features for
 	future versions.)
 
-	The protocol does not cover/allow for changing IP addresses or ports.
+	The protocol does not cover/allow for changing usernames, IP addresses,
+	or ports.
 
 [Here is an example network in JSON form.](https://github.com/JVMartin/cs300-protocol/blob/master/network.json)
 
