@@ -40,6 +40,7 @@ are to be distributed to all clients in the client list.
 		* Can never change
 		* Each must be unique
 	* ip
+		* Must be IPv4
 	* port
 
 	This list is as static as it can possibly be.  Usernames cannot be changed.
@@ -59,8 +60,8 @@ You are now ready to send a message to a user.
 
 1. Establish a TCP connection to the desired user's IP address and port.
 
-2. \[Edit me to do something involving specifically what CipherSaber preliminaries
-	are needed.\]
+2. \[Edit me to do something involving specifically what CipherSaber
+	preliminaries are needed.\]
 
 3. Send a CipherSaber-encrypted string consisting of:
 
@@ -68,7 +69,7 @@ You are now ready to send a message to a user.
 	* A pipe character
 	* Your username
 	* A pipe character
-	* The recipient's username
+	* The intended recipient's username
 	* A pipe character
 	* The letter "m" (for "message")
 	* A pipe character
