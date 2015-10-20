@@ -35,15 +35,17 @@ are to be distributed to all clients in the client list.
 	```
 
 	* username
-		* Only lowercase letters (no spaces, hyphens, etc.)
+		* Only lowercase letters
 		* 1 - 20 characters long
+		* Must be unique
 		* Can never change
-		* Each must be unique
 	* ip
 		* Must be IPv4
+		* Can never change
 	* port
+		* Can never change
 
-	This list is as static as it can possibly be.  Usernames cannot be changed.
+	This list is as static as it can possibly be.
 	Users cannot be added or removed from a network.  (Save such features for
 	future versions.)
 
